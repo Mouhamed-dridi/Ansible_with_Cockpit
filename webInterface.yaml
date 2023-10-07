@@ -1,0 +1,22 @@
+---
+- name: Install Cockpit
+  hosts: all  # Change to the appropriate group or target hosts
+  become: yes  # This allows Ansible to execute commands with sudo privileges
+
+  tasks:
+    - name: Update package cache
+      apt:
+        update_cache: yes
+      when: ansible_os_family == 'Debian'  # Only run on Debian/Ubuntu-based systems
+
+    - name: Install Cockpit package
+      apt:
+        name: cockpit
+        state: present
+      when: ansible_os_family == 'Debian'  # Only run on Debian/Ubuntu-based systems
+
+    - name: Start and enable the Cockpit service
+      systemd:
+        name: cockpit
+        enabled: yes
+        state: started

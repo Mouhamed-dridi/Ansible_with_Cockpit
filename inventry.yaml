@@ -1,0 +1,7 @@
+[cloudservers]
+cloudserver1 ansible_host=192.168.34.23 ansible_user=admin1 ansible_password=root
+cloudserver2 ansible_host=192.168.34.183 ansible_user=admin1 ansible_password=root
+
+
+# install this in both server 
+sudo yum install sshpass

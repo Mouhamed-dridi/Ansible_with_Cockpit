@@ -1,0 +1,41 @@
+
+# install
+sudo apt isnatll ansible 
+
+
+## install ssh plugein in laster controll nodes
+sudo apt-get install sshpass
+
+
+##  add domain  names to the  mamagment machines
+nano /etc/hosts add :
+192.168.1.100 myserver.example.com
+
+###  to get your mfomain names use
+hostname -d
+
+## create invernity file 
+nano invernty.ymal
+[server]
+192.168.182.134  ansible_user=admin1 ansible_password=root ansible_python_interpreter=/usr/bin/python3
+
+## if your taget machine use python 3 add this pararmter in the inventyfile 
+ansible_python_interpreter=/usr/bin/python3
+
+## test connection 
+ansible all -i inventory.yaml -m ping
+
+
+## create Firts Playbook 
+nano test-connectivity.yml
+
+## run playbook that tets co,,ectibe nettwen taget and master
+ansible-playbook test-connectivity.yml -i inventory.yaml
+
+## add root privalage to simle user that use in invenrty file to run command as root
+nano /etc/sudoers
+add this "username ALL=(ALL) NOPASSWD: ALL"
+Replace username with the name of the user you are using with Ansible. Be sure to save the file and exit the editor before running your playbook again.
+
+
+
