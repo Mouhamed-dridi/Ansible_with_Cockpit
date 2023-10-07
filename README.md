@@ -1,6 +1,6 @@
 # Ansible Automation for Rocky Linux Servers
 
-![Cockpit Logo](cockpit-logo.png)
+www.cockpit-project.org
 
 ## Overview
 
@@ -147,6 +147,31 @@ ansible-playbook -i inventory.ini install-cockpit.yml --ask-becom
 After running the install-cockpit.yml playbook, you can access the Cockpit web interface on each Rocky Linux node by opening a web browser and entering the server's IP address or hostname followed by port 9090 (e.g., http://server-ip:9090). Make sure that port 9090 is accessible in your firewall settings.
 
 That's it! You've successfully set up Ansible to manage two Rocky Linux nodes from your Debian master server and installed Cockpit on them using Ansible playbooks. You can now expand your automation by creating additional playbooks for other tasks or configurations.
+
+## extra
+Install sshpass
+Before running the playbooks, make sure to install sshpass on your Debian master server to enable password-based SSH authentication:
+```
+sudo apt install sshpass
+
+```
+
+Resolving Access Issues
+If you encounter access issues when connecting to the Rocky Linux servers via SSH, just connect via ssh from debain (server that isnatlled ansible) to rocky servers nodes
+```
+ssh admin1@server-ip
+```
+
+Root Access Issues
+ou can resolve them by editing the sudoers file using visudo on the Rocky Linux servers:
+```
+sudo visudo
+```
+Add the following line to allow your admin user to execute commands with sudo without a password prompt (replace admin1 with your admin username):
+```
+admin1 ALL=(ALL) NOPASSWD:ALL
+```
+
 
 
 
