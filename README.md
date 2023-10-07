@@ -1,6 +1,7 @@
 # Ansible Automation for Rocky Linux Servers
 
 www.cockpit-project.org
+www.rockylinux.org/
 
 ## Overview
 
@@ -32,58 +33,17 @@ Before using this Ansible project, ensure that you have the following prerequisi
 
 To get started, clone this repository to your local machine:
 
-```bash
+```
 git clone https://github.com/your-username/ansible-rocky-linux-cockpit.git
 cd ansible-rocky-linux-cockpit
 ```
 
-Certainly! I'll provide you with an updated README file that includes the added inventory information and instructions for installing sshpass on the servers, as well as creating a playbook to test the connection between Ansible and the nodes.
-
-markdown
-Copy code
-# Ansible Automation for Rocky Linux Servers
-
-![Cockpit Logo](cockpit-logo.png)
-
-## Overview
-
-This Ansible project automates the installation of the Cockpit web interface on Rocky Linux servers. Cockpit is a web-based server management tool that simplifies server administration tasks. This repository provides step-by-step instructions and playbooks to configure Cockpit on your Rocky Linux servers.
-
-## Table of Contents
-
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-  - [Clone the Repository](#clone-the-repository)
-  - [Edit the Inventory](#edit-the-inventory)
-  - [Install sshpass](#install-sshpass)
-- [Usage](#usage)
-  - [Ping Test](#ping-test)
-  - [Install Cockpit](#install-cockpit)
-- [Accessing Cockpit](#accessing-cockpit)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
-## Prerequisites
-
-Before using this Ansible project, ensure that you have the following prerequisites in place:
-
-- Two Rocky Linux servers with SSH access enabled.
-- Ansible installed on your local machine.
-- SSH access to the servers using key-based authentication.
-
-## Getting Started
-
-### Clone the Repository
-
-To get started, clone this repository to your local machine:
-
-```bash
-git clone https://github.com/your-username/ansible-rocky-linux-cockpit.git
-cd ansible-rocky-linux-cockpit
-
 ## install  sshpass
- sshpass as a variable:
+ sshpass is a utility tool that allows you to provide SSH password non-interactively to automate SSH connections in scripts and automation tasks.
+ ```
+sudo yum install sshpass
+ ```
+
 
 ##  Edit the Inventory
 Edit the inventory.ini  or create new one file to specify the IP addresses or hostnames of your Rocky Linux servers:
@@ -152,7 +112,7 @@ That's it! You've successfully set up Ansible to manage two Rocky Linux nodes fr
 Install sshpass
 Before running the playbooks, make sure to install sshpass on your Debian master server to enable password-based SSH authentication:
 ```
-sudo apt install sshpass
+sudo yum install sshpass
 
 ```
 
